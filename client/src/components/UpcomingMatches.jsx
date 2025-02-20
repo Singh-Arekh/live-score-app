@@ -23,7 +23,7 @@ const UpcomingMatches = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get(`http://localhost:3000/competitions/${selectedLeague}/upcoming`);
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/competitions/${selectedLeague}/upcoming`);
         setMatches(response.data);
       } catch (error) {
         console.error('Error fetching upcoming matches:', error);

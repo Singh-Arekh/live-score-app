@@ -23,7 +23,7 @@ const Standings = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(`http://localhost:3000/competitions/${league}/standings`);
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/competitions/${league}/standings`);
         console.log('API Response:', response.data[0].table); // Log the entire response to inspect
 
         // Ensure standings and table are available before accessing

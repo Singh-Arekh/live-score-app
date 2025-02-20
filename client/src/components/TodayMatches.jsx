@@ -12,7 +12,7 @@ const TodayMatches = () => {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/live');
+        const response = await axios.get('${import.meta.env.VITE_REACT_APP_BACKEND_URL}/live');
         const allMatches = response.data; // Data is grouped by competition
 
         // Filter matches to only include the top leagues and Champions League

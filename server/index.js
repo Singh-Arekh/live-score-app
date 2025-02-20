@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
 const cors =require('cors')
 // API Key from football-data.org
-const API_KEY = '7129fac31f4740d8b06ccb2f374a1606';
+const API_KEY = process.env.API_KEY;
 const BASE_URL = 'https://api.football-data.org/v4';
 
 // Configure axios instance with the necessary headers
