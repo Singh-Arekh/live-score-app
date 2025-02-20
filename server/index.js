@@ -40,12 +40,15 @@ app.get('/live', async (req, res) => {
 
     // Filter only finished matches with score available
     const finishedMatches = matches.map(match => ({
-      homeTeam: match.homeTeam.name,
-      awayTeam: match.awayTeam.name,
+      homeTeam: match.homeTeam.shortName || match.homeTeam.name,
+      homeLogo:match.homeTeam.crest,
+      awayTeam: match.awayTeam.shortName,
+      awayLogo:match.awayTeam.crest,
       score: `${match.score.fullTime.home !== null && match.score.fullTime.home !== undefined ? match.score.fullTime.home : 0} - ${match.score.fullTime.away !== null && match.score.fullTime.away !== undefined ? match.score.fullTime.away : 0}`,
       status: match.status,
       competition: match.competition.name,
       competitionCode: match.competition.code,
+      start:match.season.startDate
     }));
 
     // Group matches by competition

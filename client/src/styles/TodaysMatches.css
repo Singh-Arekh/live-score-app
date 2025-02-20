@@ -1,101 +1,128 @@
-/* General Container */
+/* Base styles for the matches container */
 .matches-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  }
-  
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Title of the matches section */
+.matches-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* If there are no matches */
+.no-matches {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Competition section container */
+.competition-container {
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* Competition title */
+.competition-name {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+/* Match list */
+.matches-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.match-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.team {
+  font-size: 1rem;
+  color: #555;
+}
+
+.team img{
+  width: 20px;
+  height: 20px;
+  padding: 0 10px;
+}
+
+.score {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
   .matches-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  .no-matches {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff6347; /* A reddish color for no matches text */
-  }
-  
-  .matches-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .match-item {
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-    color: #333;
-    transition: background-color 0.3s ease;
-  }
-  
-  .match-item:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Teams Styling */
-  .team {
-    font-weight: bold;
-    flex: 1;
-    text-align: center;
-  }
-  
-  .home-team {
-    text-align: left;
-  }
-  
-  .away-team {
-    text-align: right;
-  }
-  
-  /* Score Styling */
-  .score {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff;
   }
-  
-  /* Responsive Design for Smaller Screens */
-  @media (max-width: 600px) {
-    .matches-container {
-      padding: 15px;
-    }
-  
-    .matches-title {
-      font-size: 1.5rem;
-    }
-  
-    .matches-list {
-      padding-left: 20px;
-    }
-  
-    .match-item {
-      font-size: 1rem;
-      padding: 12px;
-      margin-bottom: 12px;
-    }
-  
-    .score {
-      font-size: 1.3rem;
-    }
+
+  .competition-container {
+    padding: 10px;
   }
-  
+
+  .match-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team {
+    font-size: 1rem;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .matches-title {
+    font-size: 1.2rem;
+  }
+
+  .competition-container {
+    padding: 8px;
+  }
+
+  .match-item {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .team {
+    font-size: 0.9rem;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+}
+
+/* Loading state */
+.loading {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
