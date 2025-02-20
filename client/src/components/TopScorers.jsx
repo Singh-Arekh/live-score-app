@@ -23,7 +23,7 @@ const TopScorers = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/${competition}/scorers`);
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/competitions/${competition}/scorers`);
         setScorers(response.data);
       } catch (error) {
         setError('Error fetching top scorers data.');
