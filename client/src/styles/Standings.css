@@ -54,6 +54,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  table-layout: auto;
 }
 
 .standings-table th,
@@ -72,6 +73,7 @@
   background-color: #f2f2f2;
 }
 
+/* Styling the team logo */
 .standings-table img {
   width: 30px;
   height: auto;
@@ -80,32 +82,27 @@
 
 /* Desktop View - Long Table */
 @media (min-width: 768px) {
-  .standings-table {
-    display: table;
+  .standings-table td.team-name {
+    text-align: left; /* Align logo and name to the left */
+  }
+
+  .standings-table td img {
+    width: 30px;
+    margin-right: 10px; /* Larger gap between logo and name on desktop */
   }
 
   .standings-table th,
   .standings-table td {
     font-size: 1rem;
   }
-
-  /* Ensure the images don't stretch */
-  .standings-table img {
-    width: 30px;
-    height: auto;
-  }
-
-  /* Retain table structure */
-  .standings-table td.team-name {
-    text-align: left; /* Align logo and name to the left */
-  }
 }
 
 /* Mobile View */
 @media (max-width: 767px) {
+  /* Ensure table doesn't have horizontal scroll */
   .standings-table {
     width: 100%;
-    table-layout: fixed; /* Ensures table fits without horizontal scroll */
+    table-layout: fixed; /* Makes sure columns are responsive */
   }
 
   .standings-table th,
@@ -115,21 +112,7 @@
     text-align: center;
   }
 
-  .standings-table th {
-    background-color: #007bff;
-    color: white;
-  }
-
-  .standings-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  .standings-table td {
-    font-size: 0.8rem; /* Adjust font size for mobile */
-    text-align: center;
-  }
-
-  /* Add gap between team logo and name */
+  /* Ensure better spacing and alignment of team logo and name */
   .standings-table td.team-name {
     display: flex;
     align-items: center; /* Vertically center logo and name */
@@ -138,7 +121,18 @@
 
   .standings-table td img {
     width: 25px; /* Adjust logo size for mobile */
-    height: auto;
     margin-right: 8px; /* Smaller gap on mobile */
+  }
+
+  /* Ensure no horizontal scroll */
+  .standings-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Adjust padding on mobile */
+  .standings-table th, .standings-table td {
+    padding: 8px;
   }
 }
