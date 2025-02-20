@@ -35,9 +35,6 @@ const Standings = () => {
           setError('No standings data available for this league.');
         }
 
-        if (response.data.standings && response.data.standings[0] && response.data.standings[0].table.length === 0) {
-          setError('No teams in the standings for this league.');
-        }
       } catch (error) {
         setError('Error fetching standings data.');
         console.error(`Error fetching standings for ${league}:`, error);
@@ -68,7 +65,6 @@ const Standings = () => {
       </select>
 
       {loading && <p className="loading-text">Loading standings...</p>}
-
       {error && <p className="error-text">{error}</p>}
 
       {standings.length === 0 ? (
@@ -79,32 +75,36 @@ const Standings = () => {
             <tr>
               <th>Position</th>
               <th>Team</th>
-              <th>Played</th>
+              <th>Matches</th>
               <th>Won</th>
-              <th>Lost</th>
               <th>Drawn</th>
+              <th>Lost</th>
+              <th>Points</th>
               <th>+</th>
               <th>-</th>
               <th>GD</th>
-              <th>Points</th>
             </tr>
           </thead>
           <tbody>
-            {standings.map((team, index) => (
-              <tr key={index}>
-                <td>{team.position}</td>
-              <td><img src={team.team.crest} alt="" />{team.team.shortName}</td>   
-                <td>{team.playedGames}</td>
-                <td>{team.won}</td>
-                <td>{team.lost}</td>
-                <td>{team.draw}</td>
-                <td>{team.goalsFor}</td>
-                <td>{team.goalsAgainst}</td>
-                <td>{team.goalDifference}</td>                
-                <td>{team.points}</td>
-              </tr>
-            ))}
-          </tbody>
+  {standings.map((team, index) => (
+    <tr key={index}>
+      <td>{team.position}</td>
+      <td className="team-name">
+        <img src={team.team.crest} alt={team.team.name} />
+        {team.team.shortName}
+      </td>
+      <td>{team.playedGames}</td>
+      <td>{team.won}</td>
+      <td>{team.draw}</td>
+      <td>{team.lost}</td>
+      <td>{team.points}</td>
+      <td>{team.goalsFor}</td>
+      <td>{team.goalsAgainst}</td>
+      <td>{team.goalDifference}</td>
+    </tr>
+  ))}
+</tbody>
+
         </table>
       )}
     </div>

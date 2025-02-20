@@ -1,76 +1,80 @@
-/* Base styles for the navbar */
+/* General Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px 20px;
   background-color: lightslategray;
   color: white;
-}
-.logo-link{
-  text-decoration: none;
-}
-.logo h1 {
-  font-size: 24px;
-  margin: 0;
-  color: white;
+  position: relative;
+  z-index: 1;
 }
 
+/* Navbar Links */
 .navbar-links {
   display: flex;
   gap: 20px;
 }
-
+.logo-link{
+  text-decoration: none;
+  color: white;
+}
+/* Links Styling */
 .navbar-links a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
 }
 
-.navbar-links a:hover {
-  color: lightgreen;
-}
-
-/* Mobile menu button (Hamburger) */
-.menu-icon {
+/* Hamburger Icon */
+.hamburger {
   display: none;
   cursor: pointer;
-  font-size: 24px;
-  color: white;
+  font-size: 30px;
 }
 
-/* Mobile view adjustments */
+/* On small devices (max-width: 768px) */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    width: 250px;
+    height: 100vh;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
+    justify-content: flex-start; /* Align items at the top */
+    gap: 30px;
+    padding: 50px 20px 20px 20px; /* Top padding to move links up */
     text-align: center;
   }
 
-  .navbar-links a {
-    font-size: 18px;
-  }
-
-  .navbar.active .navbar-links {
+  .navbar-links.open {
     display: flex;
   }
 
-  .menu-icon {
+  .hamburger {
+    display: block;
+  }
+
+  /* Close button visible only on small screens */
+  .close-btn {
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  /* Hide close button on large screens */
+  .close-btn {
     display: block;
   }
 }
 
-/* Very small screens (mobile) */
-@media (max-width: 480px) {
-  .logo h1 {
-    font-size: 20px;
-  }
-
-  .navbar-links a {
-    font-size: 16px;
+/* On large screens, hide the close button */
+@media (min-width: 769px) {
+  .close-btn {
+    display: none;
   }
 }

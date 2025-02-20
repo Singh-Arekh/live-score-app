@@ -80,11 +80,11 @@ const UpcomingMatches = () => {
                   {/* VS Divider */}
                   <div className="vs-container">
                     <div className="match-date">
-                      {new Date(match.utcDate).toLocaleDateString()}
+                    {new Date(match.utcDate).toLocaleDateString([], { year: '2-digit', month: '2-digit', day: '2-digit' })}
                     </div>
                     <div className="vs">VS</div>
                     <div className="match-time">
-                      {new Date(match.utcDate).toLocaleTimeString()}
+                    {new Date(match.utcDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
 
