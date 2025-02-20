@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Logo */}
       <div className="logo">
-        <h1>Logo</h1>
+        <Link className='logo-link' to={'./live'}><h1>Logo</h1></Link>
       </div>
 
       {/* Navbar Links */}

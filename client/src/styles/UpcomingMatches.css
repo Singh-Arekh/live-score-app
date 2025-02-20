@@ -1,185 +1,206 @@
-/* General Container */
 .upcoming-matches-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Title */
-  .title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 25px;
-    font-weight: bold;
-  }
-  
-  /* League Buttons */
-  .league-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-  
-  .league-btn {
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .league-btn:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .league-btn.selected {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-  }
-  
-  /* Loading Text */
-  .loading-text {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #007bff;
-  }
-  
-  /* No Matches Text */
-  .no-matches {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff6347;
-  }
-  
-  /* Matches List */
-  .matches-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.league-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.league-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.league-btn.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.league-btn:hover {
+  background-color: #ddd;
+}
+
+.loading-text {
+  font-size: 18px;
+  text-align: center;
+}
+
+.no-matches {
+  font-size: 18px;
+  text-align: center;
+}
+
+.matches-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.match-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.match-details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.home-team {
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.away-team {
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.team-crest {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.vs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-date {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.vs {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.match-time {
+  font-size: 14px;
+  color: gray;
+}
+
+.match-item:hover {
+  background-color: #f9f9f9;
+}
+
+.match-item:last-child {
+  border-bottom: none;
+}
+
+.away-team img {
+  padding-left: 10px;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
   .match-item {
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    flex-direction: column; /* Stack items vertically on tablets */
+    padding: 10px 0;
   }
-  
-  .match-item:hover {
-    transform: translateY(-5px);
-    background-color: #fafafa;
-  }
-  
+
   .match-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-bottom: 15px;
-  }
-  
-  .team {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  
-  .team-crest {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-  }
-  
-  .vs {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #007bff;
-    padding: 0 20px;
-  }
-  
-  .match-date {
-    font-size: 1rem;
-    color: #666;
+    flex-direction: column;
+    align-items: center; /* Center all content vertically */
     text-align: center;
-    margin-top: 10px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .upcoming-matches-container {
-      padding: 20px;
-    }
-  
-    .title {
-      font-size: 1.8rem;
-    }
-  
-    .league-buttons {
-      gap: 10px;
-    }
-  
-    .league-btn {
-      font-size: 1rem;
-    }
-  
-    .matches-list {
-      padding-left: 20px;
-    }
-  
-    .match-item {
-      font-size: 1rem;
-      padding: 15px;
-      margin-bottom: 15px;
-    }
-  
-    .match-date {
-      font-size: 0.9rem;
-    }
-  
-    .team-crest {
-      width: 25px;
-      height: 25px;
-    }
+
+  .team {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
   }
-  
-  @media (max-width: 480px) {
-    .match-item {
-      padding: 10px;
-    }
-  
-    .team-crest {
-      width: 20px;
-      height: 20px;
-    }
-  
-    .title {
-      font-size: 1.5rem;
-    }
-  
-    .team {
-      font-size: 0.9rem;
-    }
-  
-    .vs {
-      font-size: 1rem;
-    }
+
+  .vs-container {
+    margin: 10px 0;
   }
-  
+
+  .vs {
+    font-size: 18px;
+  }
+
+  .match-date {
+    font-size: 14px;
+  }
+
+  .match-time {
+    font-size: 12px;
+  }
+
+  .team-crest {
+    width: 30px; /* Adjust logo size */
+    height: 30px;
+  }
+
+  .league-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .league-buttons {
+    flex-direction: column;
+  }
+}
+
+/* For very small screens (mobile) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .match-item {
+    padding: 8px 0; /* Reduce padding */
+  }
+
+  .team-crest {
+    width: 25px;
+    height: 25px;
+  }
+
+  .vs {
+    font-size: 16px; /* Smaller font size for "VS" */
+  }
+
+  .match-date,
+  .match-time {
+    font-size: 12px; /* Smaller font size for date/time */
+  }
+
+  .league-btn {
+    padding: 6px 12px;
+  }
+
+  .league-buttons {
+    flex-direction: column;
+  }
+}

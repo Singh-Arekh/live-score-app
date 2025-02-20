@@ -52,7 +52,11 @@
     text-align: center;
     border: 1px solid #ddd;
   }
-  
+  .standings-table td img {
+    width: 20px;
+    height: 20px;
+    
+  }  
   .standings-table th {
     background-color: #4CAF50;
     color: white;

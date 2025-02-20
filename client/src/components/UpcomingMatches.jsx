@@ -74,26 +74,29 @@ const UpcomingMatches = () => {
                       alt={match.homeTeam.name} 
                       className="team-crest" 
                     />
-                    {match.homeTeam.name}
+                    {match.homeTeam.shortName}
                   </div>
 
                   {/* VS Divider */}
-                  <div className="vs">VS</div>
+                  <div className="vs-container">
+                    <div className="match-date">
+                      {new Date(match.utcDate).toLocaleDateString()}
+                    </div>
+                    <div className="vs">VS</div>
+                    <div className="match-time">
+                      {new Date(match.utcDate).toLocaleTimeString()}
+                    </div>
+                  </div>
 
                   {/* Away Team */}
                   <div className="team away-team">
-                    {match.awayTeam.name}
+                    {match.awayTeam.shortName}
                     <img 
                       src={match.awayTeam.crest} 
                       alt={match.awayTeam.name} 
                       className="team-crest" 
                     />
                   </div>
-                </div>
-
-                {/* Match Date */}
-                <div className="match-date">
-                  {new Date(match.utcDate).toLocaleString()}
                 </div>
               </li>
             ))

@@ -15,6 +15,7 @@ const Standings = () => {
     PD: 'La Liga',
     BL1: 'Bundesliga',
     FL1: 'Ligue 1',
+    CL: 'Champions League'
   };
 
   // Fetch standings for the selected league
@@ -82,6 +83,9 @@ const Standings = () => {
               <th>Won</th>
               <th>Lost</th>
               <th>Drawn</th>
+              <th>+</th>
+              <th>-</th>
+              <th>GD</th>
               <th>Points</th>
             </tr>
           </thead>
@@ -89,11 +93,14 @@ const Standings = () => {
             {standings.map((team, index) => (
               <tr key={index}>
                 <td>{team.position}</td>
-                <td>{team.team.name}</td>
+              <td><img src={team.team.crest} alt="" />{team.team.shortName}</td>   
                 <td>{team.playedGames}</td>
                 <td>{team.won}</td>
                 <td>{team.lost}</td>
                 <td>{team.draw}</td>
+                <td>{team.goalsFor}</td>
+                <td>{team.goalsAgainst}</td>
+                <td>{team.goalDifference}</td>                
                 <td>{team.points}</td>
               </tr>
             ))}

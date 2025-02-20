@@ -3,7 +3,6 @@ import Layout from "./components/Layout"; // Import the Layout component
 import Standings from "./components/Standing";
 import TopScorers from "./components/TopScorers";
 import TodayMatches from './components/TodayMatches';
-import Home from "./components/Home";
 import UpcomingMatches from "./components/UpcomingMatches";
 
 const router = createBrowserRouter([
@@ -13,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />, // Home page as the default page inside Layout
+        element: <TodayMatches />, // Home page as the default page inside Layout
       },
       {
         path: "/score",

@@ -15,6 +15,8 @@ const TopScorers = () => {
     PD: 'La Liga',
     BL1: 'Bundesliga',
     FL1: 'Ligue 1',
+    CL: 'Champions League',
+    EL: 'Europa League',
   };
 
   // Fetch top scorers for the selected competition
@@ -36,23 +38,27 @@ const TopScorers = () => {
     fetchTopScorers();
   }, [competition]);
 
-  // Handle competition change from dropdown
-  const handleCompetitionChange = (event) => {
-    setCompetition(event.target.value);
+  // Handle competition change when a league button is clicked
+  const handleCompetitionChange = (selectedCompetition) => {
+    setCompetition(selectedCompetition);
   };
 
   return (
     <div className="top-scorers-container">
-      <h2 className="title">Top Scorers in {competition}</h2>
+      <h2 className="title">Top Scorers in {competitions[competition]}</h2>
 
-      {/* Competition dropdown */}
-      <select className="competition-select" onChange={handleCompetitionChange} value={competition}>
+      {/* Display all competition buttons */}
+      <div className="competitions-buttons">
         {Object.keys(competitions).map((key) => (
-          <option key={key} value={key}>
+          <button
+            key={key}
+            className={`competition-button ${competition === key ? 'active' : ''}`}
+            onClick={() => handleCompetitionChange(key)}
+          >
             {competitions[key]}
-          </option>
+          </button>
         ))}
-      </select>
+      </div>
 
       {loading && <p className="loading-text">Loading top scorers...</p>}
 
@@ -64,21 +70,32 @@ const TopScorers = () => {
         <ul className="scorers-list">
           {scorers.map((scorer, index) => (
             <li key={index} className="scorer-item">
-              <div className="scorer-header">
-                <img src={scorer.team.crest} alt="" className="team-crest" />
+              <div className="scorer-row">
+                <div className="team-logo">
+                  <img src={scorer.team.crest} alt="" className="team-crest" />
+                </div>
                 <div className="player-info">
                   <strong className="player-name">{scorer.player.name}</strong>
                   <span className="team-name">({scorer.team.name})</span>
                 </div>
-              </div>
-
-              <div className="stats">
-                <ul className="stats-list">
-                  <li>Matches: {scorer.playedMatches}</li>
-                  <li>Goals: {scorer.goals}</li>
-                  <li>Assists: {scorer.assists}</li>
-                  <li>Penalties: {scorer.penalties}</li>
-                </ul>
+                <div className="stats">
+                  <div className="stat-column">
+                    <span className="stat-title">Matches</span>
+                    <span className="stat-value">{scorer.playedMatches}</span>
+                  </div>
+                  <div className="stat-column">
+                    <span className="stat-title">Goals</span>
+                    <span className="stat-value">{scorer.goals}</span>
+                  </div>
+                  <div className="stat-column">
+                    <span className="stat-title">Assists</span>
+                    <span className="stat-value">{scorer.assists}</span>
+                  </div>
+                  <div className="stat-column">
+                    <span className="stat-title">Penalties</span>
+                    <span className="stat-value">{scorer.penalties}</span>
+                  </div>
+                </div>
               </div>
             </li>
           ))}
